@@ -1,0 +1,24 @@
+/* Booking page: spotlight layout (poster + details) from the Theater page. */
+
+.single {
+  max-width: 760px;
+}
+
+.panel {
+  margin-bottom: 28px;
+}
+
+.panel p {
+  max-width: 52ch;
+}
+
+.status {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.mail {
+  color: var(--rust-text);
+  overflow-wrap: anywhere;
+  font-weight: 600;
+}

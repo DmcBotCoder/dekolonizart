@@ -1,0 +1,59 @@
+/* "All events": search field (same field style as the reference forms) and the card grid. */
+
+.search {
+  gap: 8px;
+  max-width: 560px;
+  display: grid;
+}
+
+.search label {
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.search input {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 52px;
+  font: inherit;
+  color: var(--ink);
+  background: var(--white)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='none' stroke='%2354443f' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='8.5' cy='8.5' r='6'/%3E%3Cpath d='m13 13 5 5'/%3E%3C/svg%3E")
+    no-repeat 16px center;
+  border: 2px solid #6b5a57;
+  border-radius: var(--radius);
+  padding: 0.75em 0.9em 0.75em 48px;
+}
+
+.search input::placeholder {
+  color: var(--muted);
+  opacity: 1;
+}
+
+.search input:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.status {
+  color: var(--muted);
+  margin: 20px 0 28px;
+  font-size: 0.95rem;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list li {
+  display: grid;
+}
+
+:global(html.a11y-contrast) .search input {
+  background-color: #fff;
+  border-color: #000;
+}

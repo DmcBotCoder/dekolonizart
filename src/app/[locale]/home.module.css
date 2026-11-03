@@ -1,0 +1,601 @@
+.home em {
+  color: var(--rust-text);
+  font-style: normal;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  align-items: center;
+  min-height: calc(100svh - 106px);
+  padding: clamp(48px, 7vw, 96px) 0;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.heroTint {
+  z-index: 0;
+  background: var(--rust);
+  opacity: 0;
+  pointer-events: none;
+  will-change: opacity;
+  position: absolute;
+  inset: 0;
+}
+
+.heroGrid {
+  z-index: 1;
+  align-items: center;
+  gap: 32px;
+  display: grid;
+  position: relative;
+}
+
+@media (width >= 900px) {
+  .heroGrid {
+    grid-template-columns: 1.15fr 1fr;
+  }
+}
+
+.hero h1 {
+  perspective: 600px;
+  font-size: clamp(2.6rem, 6vw, 5.2rem);
+}
+
+.heroLogoParallax,
+.heroLogoMouse {
+  will-change: transform;
+}
+
+.heroLogoParallax {
+  position: relative;
+}
+
+.heroLogoMouse {
+  z-index: 1;
+  position: relative;
+}
+
+.heroLogoWrap {
+  clip-path: circle(75% at 50% 60%);
+}
+
+.heroBlob {
+  aspect-ratio: 1;
+  background: var(--sand);
+  border-radius: 50%;
+  width: 78%;
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+.heroLogo {
+  mix-blend-mode: multiply;
+  width: 100%;
+  max-width: 540px;
+  margin-inline: auto;
+}
+
+.heroActions {
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+  display: flex;
+}
+
+.watermarkTrack {
+  z-index: 0;
+  pointer-events: none;
+  will-change: transform;
+  position: absolute;
+  bottom: -0.12em;
+  left: 0;
+}
+
+.watermark {
+  font-family: var(--display);
+  white-space: nowrap;
+  color: #0000;
+  -webkit-text-stroke: 1px #9a3a1e2e;
+  pointer-events: none;
+  -webkit-user-select: none;
+  user-select: none;
+  font-size: clamp(6rem, 22vw, 20rem);
+  line-height: 1;
+  display: block;
+}
+
+.scrollCue {
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.7rem;
+  display: flex;
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.scrollCue span {
+  background: linear-gradient(var(--rust), transparent);
+  transform-origin: top;
+  width: 1px;
+  height: 44px;
+  animation: 2s ease-in-out infinite cue;
+}
+
+@keyframes cue {
+  0% {
+    transform: scaleY(0);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+  to {
+    opacity: 0;
+    transform: scaleY(1);
+  }
+}
+
+/* ---------- Intro ---------- */
+
+.intro {
+  gap: 32px;
+  display: grid;
+}
+
+@media (width >= 900px) {
+  .intro {
+    grid-template-columns: 1fr 1.4fr;
+  }
+}
+
+.lead {
+  font-size: 1.3rem;
+  line-height: 1.5;
+}
+
+.intro .lead {
+  color: var(--earth);
+  font-size: clamp(1.3rem, 2.2vw, 1.75rem);
+}
+
+/* ---------- Manifest ---------- */
+
+.manifest {
+  text-align: center;
+  padding: clamp(72px, 10vw, 140px) 0;
+  overflow: hidden;
+}
+
+.small {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--white);
+  font-size: 0.85rem;
+  display: inline-block;
+}
+
+.words {
+  font-family: var(--display);
+  margin: 16px 0 0;
+  font-size: clamp(2.4rem, 7vw, 5.6rem);
+  line-height: 1.05;
+}
+
+.words > span {
+  margin: 0 0.18em;
+  display: inline-block;
+}
+
+.words > span:nth-child(odd) {
+  color: var(--cream);
+}
+
+/* ---------- Ticker ---------- */
+
+.ticker {
+  background: var(--earth);
+  color: var(--cream);
+  padding: 14px 0;
+  overflow: hidden;
+}
+
+.track {
+  will-change: transform;
+  gap: 40px;
+  width: max-content;
+  display: flex;
+}
+
+.track span {
+  font-family: var(--display);
+  white-space: nowrap;
+  font-size: 1.6rem;
+}
+
+/* ---------- Featured production ---------- */
+
+.featured {
+  align-items: center;
+  gap: 56px;
+  display: grid;
+}
+
+@media (width >= 900px) {
+  .featured {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: 80px;
+  }
+}
+
+.posterCol {
+  justify-items: center;
+  display: grid;
+}
+
+.posterWrap {
+  will-change: transform;
+  justify-self: center;
+  width: min(440px, 78%, 70.9svh - 134.71px);
+  position: relative;
+}
+
+@media (width >= 900px) {
+  .posterWrap {
+    width: min(440px, 100%, 70.9svh - 134.71px);
+  }
+}
+
+.poster {
+  cursor: zoom-in;
+  background: 0 0;
+  border: 0;
+  border-radius: 4px;
+  width: 100%;
+  padding: 0;
+  display: block;
+  position: relative;
+  box-shadow: 0 40px 80px -20px #3d2c2b73;
+}
+
+.poster img {
+  border-radius: 4px;
+  width: 100%;
+  height: auto;
+}
+
+.zoomHint {
+  color: #fff;
+  letter-spacing: 0.06em;
+  opacity: 0;
+  background: #1f1716cc;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  transition: all 0.4s var(--ease-out);
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  transform: translateY(8px);
+}
+
+.poster:hover .zoomHint,
+.poster:focus-visible .zoomHint {
+  opacity: 1;
+  transform: none;
+}
+
+.stamp {
+  z-index: 2;
+  background: var(--earth);
+  width: 108px;
+  height: 108px;
+  color: var(--cream);
+  text-align: center;
+  font-family: var(--display);
+  pointer-events: none;
+  border-radius: 50%;
+  place-items: center;
+  font-size: 1.05rem;
+  line-height: 1.05;
+  display: grid;
+  position: absolute;
+  top: -28px;
+  right: -28px;
+  box-shadow: 0 12px 30px #1f171659;
+}
+
+@media (width <= 600px) {
+  .stamp {
+    width: 88px;
+    height: 88px;
+    font-size: 0.9rem;
+    top: -20px;
+    right: -8px;
+  }
+}
+
+.facts {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 24px;
+  margin: 8px 0 28px;
+  display: grid;
+}
+
+.facts dt {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--rust-text);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.facts dd {
+  margin: 4px 0 0;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+@media (width <= 520px) {
+  .facts {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tr {
+  font-family: var(--body);
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  text-transform: none;
+  margin-top: 0.4em;
+  font-size: 0.45em;
+  display: block;
+}
+
+/* ---------- Offers ---------- */
+
+/* The cards fly in rotated; keep their corners from widening the page on small screens. */
+.offersSection {
+  overflow-x: clip;
+}
+
+.offers {
+  margin-top: 40px;
+}
+
+.offer {
+  flex-direction: column;
+  text-decoration: none;
+  transition:
+    transform 0.5s var(--ease-out),
+    box-shadow 0.5s;
+  display: flex;
+}
+
+.offer:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 44px #3d2c2b24;
+}
+
+.offer p {
+  flex: 1;
+}
+
+.num {
+  font-family: var(--display);
+  color: var(--accent-on-dark);
+  margin-bottom: 16px;
+  font-size: 2.6rem;
+  line-height: 1;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.offer:hover .num {
+  transform: translate(8px);
+}
+
+/* ---------- What's on / partners / support ---------- */
+
+.head {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 24px;
+  display: flex;
+}
+
+.center {
+  text-align: center;
+  display: block;
+}
+
+.partners {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 48px;
+  margin-top: 24px;
+  display: flex;
+}
+
+.partners img {
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  filter: grayscale();
+  opacity: 0.8;
+  width: 200px;
+  height: 200px;
+  transition: all 0.4s;
+}
+
+.partners img:hover {
+  filter: none;
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+.partners a {
+  display: block;
+  border-radius: 8px;
+}
+
+.support {
+  gap: 32px;
+  display: grid;
+}
+
+@media (width >= 900px) {
+  .support {
+    grid-template-columns: 1fr 1.3fr;
+  }
+}
+
+/* ---------- Contrast / forced colours ---------- */
+
+:global(html.a11y-contrast) .watermarkTrack,
+:global(html.a11y-contrast) .heroBlob {
+  display: none;
+}
+
+:global(html.a11y-contrast) .partners img {
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+@media (prefers-contrast: more) {
+  .watermarkTrack,
+  .heroBlob {
+    display: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .watermarkTrack,
+  .heroBlob {
+    display: none;
+  }
+}
+
+/* ---------- Support (closing portrait) ----------
+   Last block before the footer, as on the WordPress home page: the portrait
+   (mirrored, like there) carries the donation call and darkens into the
+   footer colour, so image and footer read as one surface. The edges are
+   darkened too (top strongly, the sides a little) to frame the face. */
+
+.closing {
+  background: var(--ink);
+  /* Covers the footer's first pixel row: two blocks meeting on a fractional
+     pixel otherwise let the page background show through as a faint line. */
+  box-shadow: 0 2px 0 var(--ink);
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  position: relative;
+  overflow: hidden;
+  /* "Donation" links (/#support) land a little lower, so the face, the text and
+     the Donate button are all on screen. */
+  scroll-margin-top: -20svh;
+}
+
+.closing:after {
+  content: '';
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--ink) 85%, transparent) 0%,
+      color-mix(in srgb, var(--ink) 55%, transparent) 18%,
+      color-mix(in srgb, var(--ink) 22%, transparent) 30%,
+      color-mix(in srgb, var(--ink) 34%, transparent) 41%,
+      var(--ink) 88%
+    ),
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--ink) 50%, transparent) 0%,
+      transparent 22%,
+      transparent 72%,
+      color-mix(in srgb, var(--ink) 50%, transparent) 100%
+    );
+  position: absolute;
+  inset: 0;
+}
+
+/* Stops short of the bottom edge (which is plain footer colour anyway) so the
+   photo can never show through a fractional last pixel row. */
+.closingMedia {
+  position: absolute;
+  inset: 0 0 4px;
+}
+
+.closingImg {
+  object-fit: cover;
+  object-position: 50% 15%;
+  transform: scaleX(-1);
+}
+
+/* Label at the top, text + button on the right below the face (as on WordPress),
+   where the gradient is dark enough for the light text. */
+.closingInner {
+  z-index: 1;
+  grid-template-rows: auto 1fr;
+  gap: 32px;
+  padding-block: clamp(72px, 12svh, 128px) clamp(64px, 18svh, 180px);
+  display: grid;
+  position: relative;
+}
+
+.closingLabel {
+  color: var(--cream);
+  letter-spacing: 0.06em;
+  margin: 0;
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+}
+
+.closingBody {
+  align-self: end;
+  justify-self: end;
+  width: min(100%, 34rem);
+}
+
+.closingBody p {
+  color: var(--cream);
+  text-shadow: 0 1px 24px #1f171699;
+  margin: 0 0 24px;
+  font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+  line-height: 1.4;
+}
+
+.closingBtn {
+  padding: 0.6em 1.2em;
+  font-size: 0.9rem;
+}
+
+@media (width < 768px) {
+  .closing {
+    min-height: 90vh;
+    min-height: 90svh;
+    scroll-margin-top: -25svh;
+  }
+
+  /* Keep the face in the narrow frame (it sits at ~62% of the unmirrored photo). */
+  .closingImg {
+    object-position: 62% 0;
+  }
+
+  .closingInner {
+    padding-bottom: 56px;
+  }
+
+  .closingBody {
+    justify-self: stretch;
+  }
+}

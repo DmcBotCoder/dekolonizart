@@ -1,0 +1,11 @@
+.cta {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  display: flex;
+}
+
+.cta h2 {
+  margin: 0;
+}

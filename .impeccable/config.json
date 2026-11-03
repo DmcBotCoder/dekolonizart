@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "src/styles/globals.css"
+        ],
+        "createdAt": "2026-11-03T00:16:06.759Z",
+        "reason": "Reference fidelity: .legal-warning and .legal-lang borders are ported verbatim from the OnPoint reference CSS; the user's spec forbids redesigning it"
+      },
+      {
+        "rule": "border-accent-on-rounded",
+        "value": "*",
+        "files": [
+          "src/styles/globals.css"
+        ],
+        "createdAt": "2026-11-03T00:16:06.787Z",
+        "reason": "Reference fidelity: .card border-top + radius is ported verbatim from the OnPoint reference CSS; the user's spec forbids redesigning it"
+      }
+    ]
+  }
+}

@@ -1,0 +1,91 @@
+/* Artist profiles – same composition as the reference workshop rows (.ws). */
+
+.list {
+  gap: clamp(56px, 8vw, 110px);
+  display: grid;
+}
+
+/* Anchor target (/artists#slug). The sticky header is cleared by html { scroll-padding-top },
+   which Lenis also honours – an extra scroll-margin here would double the gap. */
+.artist {
+  align-items: start;
+  gap: 28px;
+  display: grid;
+}
+
+@media (width >= 900px) {
+  .artist {
+    grid-template-columns: 5fr 7fr;
+    gap: 64px;
+  }
+}
+
+.artist:target .name,
+.artist:focus .name {
+  color: var(--rust-text);
+}
+
+.artist:focus {
+  outline: none;
+}
+
+.frame {
+  aspect-ratio: 4 / 5;
+  background: var(--earth);
+  border-radius: 6px;
+  place-items: center;
+  display: grid;
+  position: relative;
+  overflow: hidden;
+}
+
+.frame img {
+  object-fit: cover;
+  object-position: center 20%;
+  width: 100%;
+  height: 100%;
+}
+
+.initials {
+  font-family: var(--display);
+  color: var(--cream);
+  z-index: 1;
+  font-size: 4rem;
+  position: relative;
+}
+
+.mark {
+  opacity: 0.12;
+  filter: brightness(0) invert();
+  width: 85%;
+  position: absolute;
+}
+
+.role {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rust-text);
+  margin-bottom: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.6;
+  display: block;
+}
+
+.name {
+  transition: color 0.4s;
+}
+
+.bio p {
+  color: var(--muted);
+}
+
+.langNote {
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+.website {
+  margin-top: 12px;
+}

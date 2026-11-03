@@ -1,0 +1,12 @@
+.word {
+  display: inline-block;
+}
+
+.animating .word {
+  will-change: opacity, filter;
+}
+
+.revealed .word {
+  opacity: 1 !important;
+  filter: none !important;
+}

@@ -1,0 +1,33 @@
+.gloss {
+  margin: 0;
+}
+
+.entry {
+  border-top: 1px solid #3d2c2b33;
+  padding: 22px 0;
+  scroll-margin-top: 130px;
+}
+
+.entry:target,
+.entry:focus {
+  background: #fbeee8;
+  outline: none;
+  box-shadow:
+    -16px 0 #fbeee8,
+    16px 0 #fbeee8;
+}
+
+.entry dt {
+  font-family: var(--display);
+  color: var(--earth);
+  margin-bottom: 6px;
+  font-size: clamp(1.4rem, 2.6vw, 1.8rem);
+}
+
+.entry dfn {
+  font-style: normal;
+}
+
+.entry dd {
+  margin: 0;
+}

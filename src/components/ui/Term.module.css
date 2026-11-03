@@ -1,0 +1,12 @@
+.term {
+  color: inherit;
+  text-underline-offset: 0.22em;
+  -webkit-text-decoration: underline dotted;
+  text-decoration: underline dotted;
+  text-decoration-thickness: 2px;
+}
+
+.term:hover {
+  color: var(--rust-text);
+  text-decoration-style: solid;
+}

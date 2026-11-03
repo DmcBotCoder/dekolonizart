@@ -1,0 +1,8 @@
+.todo {
+  color: var(--rust-text);
+  outline: 1px dashed var(--rust-text);
+  background: #fde8e1;
+  border-radius: 3px;
+  padding: 0 0.25em;
+  font-weight: 600;
+}

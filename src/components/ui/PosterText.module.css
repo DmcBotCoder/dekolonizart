@@ -1,0 +1,64 @@
+.posterText {
+  justify-self: center;
+  width: 100%;
+  max-width: 460px;
+  margin-top: 18px;
+}
+
+.posterText summary {
+  cursor: pointer;
+  min-height: 44px;
+  color: var(--rust-text);
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  list-style: none;
+  display: flex;
+}
+
+.posterText summary::-webkit-details-marker {
+  display: none;
+}
+
+.posterText summary:before {
+  content: '+';
+  border: 2px solid;
+  border-radius: 50%;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  font-size: 1rem;
+  line-height: 1;
+  display: grid;
+}
+
+.posterText[open] summary:before {
+  content: '−';
+}
+
+:global(.section--dark) .posterText summary {
+  color: var(--accent-on-dark);
+}
+
+:global(html.a11y-contrast .section--dark) .posterText summary {
+  color: #fff;
+}
+
+.body {
+  border-left: 4px solid var(--rust);
+  background: #fff9;
+  border-radius: 4px;
+  padding: 14px 18px;
+}
+
+:global(.section--dark) .body {
+  background: #ffffff0f;
+}
+
+.body p {
+  margin: 0 0 0.5em;
+}
+
+.note {
+  font-style: italic;
+}

@@ -1,0 +1,86 @@
+.crumbs {
+  margin-bottom: 18px;
+  font-size: 0.9rem;
+}
+
+.crumbs ol {
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.crumbs li {
+  align-items: center;
+  display: inline-flex;
+}
+
+.crumbs li + li:before {
+  content: '/';
+  color: var(--accent-on-dark);
+  margin: 0 10px;
+}
+
+.crumbs a {
+  min-width: 44px;
+  min-height: 44px;
+  color: var(--sand);
+  text-underline-offset: 0.2em;
+  justify-content: center;
+  align-items: center;
+  text-decoration: underline;
+  display: inline-flex;
+}
+
+.crumbs a:hover {
+  color: var(--white);
+}
+
+.crumbs [aria-current] {
+  color: var(--white);
+  font-weight: 600;
+}
+
+/* ---------- Hero with an image (production pages) ----------
+   Desktop: the text keeps the left part, the image fills the right 40% at full
+   height with a diagonal left edge. Phones/tablets: the image closes the hero
+   as a band with a diagonal top edge. */
+
+.withImage {
+  padding-bottom: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.media {
+  height: clamp(200px, 52vw, 360px);
+  margin-top: clamp(32px, 6vw, 48px);
+  clip-path: polygon(0 22%, 100% 0, 100% 100%, 0 100%);
+  position: relative;
+}
+
+.media img {
+  object-fit: cover;
+}
+
+@media (width >= 900px) {
+  .withImage {
+    padding-bottom: clamp(40px, 6vw, 72px);
+  }
+
+  /* Ends 40px before the image starts (60% of the hero width). */
+  .text {
+    max-width: calc(10vw + min(var(--max), 100vw - 32px) / 2 - 40px);
+  }
+
+  .media {
+    width: 40%;
+    height: auto;
+    margin: 0;
+    clip-path: polygon(26% 0, 100% 0, 100% 100%, 0 100%);
+    position: absolute;
+    inset: 0 0 0 auto;
+  }
+}

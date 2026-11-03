@@ -1,0 +1,30 @@
+.events {
+  border-top: 1px solid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.events li {
+  border-bottom: 1px solid #7f7f7f59;
+  align-items: center;
+  gap: 4px 24px;
+  padding: 22px 0;
+  display: grid;
+}
+
+@media (width >= 700px) {
+  .events li {
+    grid-template-columns: 220px 1fr auto;
+  }
+}
+
+.date {
+  font-family: var(--display);
+  font-size: 1.5rem;
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}

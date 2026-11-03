@@ -1,0 +1,46 @@
+.lightbox {
+  z-index: 400;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  cursor: zoom-out;
+  background: #1f1716eb;
+  place-items: center;
+  padding: 32px;
+  display: grid;
+  position: fixed;
+  inset: 0;
+}
+
+.lightbox :focus-visible {
+  outline-color: var(--cream);
+}
+
+.lightbox img {
+  object-fit: contain;
+  cursor: default;
+  border-radius: 4px;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: calc(100vh - 64px);
+  box-shadow: 0 30px 80px #00000080;
+}
+
+.close {
+  background: var(--rust);
+  color: #fff;
+  cursor: pointer;
+  border: 0;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 1.1rem;
+  transition: transform 0.4s var(--ease-out);
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.close:hover {
+  transform: rotate(90deg);
+}

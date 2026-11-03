@@ -1,0 +1,54 @@
+/*
+ * Card with a photo background (home "Our Offers", Services page). The photo
+ * sits under a dark gradient so the light text keeps its contrast on any part
+ * of the image. Use together with the global `.card` class.
+ */
+
+.card {
+  isolation: isolate;
+  background: var(--earth);
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+
+.card:before {
+  content: '';
+  z-index: -1;
+  background: linear-gradient(180deg, #1f1716a6 0%, #1f1716d1 55%, #1f1716eb 100%);
+  position: absolute;
+  inset: 0;
+}
+
+.img {
+  z-index: -2;
+  object-fit: cover;
+  transition: transform 1s var(--ease-out);
+}
+
+.card:hover .img,
+.card:focus-within .img {
+  transform: scale(1.05);
+}
+
+.card h3 {
+  color: var(--cream);
+}
+
+.card p {
+  color: var(--sand);
+}
+
+.card :global(.link-arrow) {
+  color: var(--cream);
+}
+
+:global(html.a11y-contrast) .card:before {
+  background: #000000e0;
+}
+
+@media (forced-colors: active) {
+  .img {
+    display: none;
+  }
+}

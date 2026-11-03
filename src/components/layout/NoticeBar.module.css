@@ -1,0 +1,104 @@
+.skip {
+  background: var(--rust);
+  color: #fff;
+  z-index: 100;
+  padding: 8px 16px;
+  position: absolute;
+  top: 0;
+  left: -9999px;
+}
+
+.skip:focus {
+  outline: 3px solid var(--cream);
+  outline-offset: 2px;
+  top: 8px;
+  left: 16px;
+}
+
+.notice {
+  background: var(--rust);
+  color: #fff;
+  letter-spacing: 0.04em;
+  z-index: 70;
+  font-size: 0.85rem;
+  position: relative;
+}
+
+.notice :focus-visible {
+  outline-color: var(--cream);
+}
+
+.inner {
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 4px 0;
+  display: flex;
+}
+
+.tools {
+  flex-shrink: 0;
+  align-items: center;
+  gap: 10px;
+  display: flex;
+}
+
+@media (width <= 560px) {
+  .inner {
+    justify-content: center;
+  }
+}
+
+/* ---------- Language switcher ---------- */
+
+.lang {
+  flex-shrink: 0;
+}
+
+.lang ul {
+  border: 2px solid #ffffffb3;
+  border-radius: 999px;
+  gap: 2px;
+  margin: 0;
+  padding: 3px;
+  list-style: none;
+  display: flex;
+}
+
+.lang a {
+  min-width: 44px;
+  min-height: 44px;
+  color: var(--white);
+  letter-spacing: 0.08em;
+  border-radius: 999px;
+  justify-content: center;
+  align-items: center;
+  padding: 0 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background 0.25s,
+    color 0.25s;
+  display: inline-flex;
+}
+
+.lang a:hover {
+  background: #ffffff2e;
+}
+
+.lang a.on {
+  background: var(--white);
+  color: var(--rust-text);
+}
+
+:global(html.a11y-contrast) .lang a.on {
+  color: #000;
+}
+
+@media (forced-colors: active) {
+  .lang a.on {
+    outline: 2px solid buttontext;
+  }
+}

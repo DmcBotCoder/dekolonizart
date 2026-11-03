@@ -1,0 +1,138 @@
+/* Contextual navigation, built from the reference tokens (eyebrow, rules, rust accents). */
+
+.nav {
+  border-top: 1px solid #3d2c2b33;
+  border-bottom: 1px solid #3d2c2b33;
+}
+
+.title {
+  display: none;
+}
+
+.toggle {
+  width: 100%;
+  min-height: 56px;
+  font: inherit;
+  color: var(--rust-text);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  background: 0 0;
+  border: 0;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+}
+
+.chev {
+  transition: transform 0.4s var(--ease-out);
+}
+
+.toggle[aria-expanded='true'] .chev {
+  transform: rotate(180deg);
+}
+
+.panel {
+  visibility: hidden;
+  grid-template-rows: 0fr;
+  transition:
+    grid-template-rows 0.5s var(--ease-out),
+    visibility 0s 0.5s;
+  display: grid;
+}
+
+.panel.open {
+  visibility: visible;
+  grid-template-rows: 1fr;
+  transition:
+    grid-template-rows 0.5s var(--ease-out),
+    visibility 0s;
+}
+
+.panel > ul {
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+}
+
+.panel.open > ul {
+  padding-bottom: 12px;
+}
+
+.panel a {
+  color: var(--muted);
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 6px 0;
+  font-weight: 400;
+  text-decoration: none;
+  transition: color 0.25s;
+  display: flex;
+}
+
+.panel a:hover {
+  color: var(--rust-text);
+}
+
+.panel a.current {
+  color: var(--earth);
+  font-weight: 700;
+}
+
+.marker {
+  color: var(--rust-text);
+  font-size: 1.2em;
+  line-height: 1;
+  transition: transform 0.4s var(--ease-out);
+}
+
+.panel a:hover .marker {
+  transform: translate(3px);
+}
+
+@media (width >= 900px) {
+  .nav {
+    border-bottom: 0;
+    padding-top: 18px;
+    position: sticky;
+    top: 110px;
+  }
+
+  .title {
+    font-family: var(--body);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--rust-text);
+    margin: 0 0 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    line-height: 1.6;
+    display: block;
+  }
+
+  .toggle {
+    display: none;
+  }
+
+  .panel,
+  .panel.open {
+    visibility: visible;
+    grid-template-rows: 1fr;
+  }
+
+  .panel > ul,
+  .panel.open > ul {
+    padding-bottom: 0;
+  }
+}
+
+:global(html.reduce-motion) .panel {
+  transition: none;
+}

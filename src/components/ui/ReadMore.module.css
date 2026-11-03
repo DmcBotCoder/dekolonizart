@@ -1,0 +1,32 @@
+.readMore {
+  display: grid;
+}
+
+.subhead {
+  font-family: var(--body);
+  color: var(--earth);
+  margin: 0.4em 0 0.4em;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+/* Collapsible continuation: animates its real height (grid rows), stays in flow. */
+.rest {
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s var(--ease-out);
+  display: grid;
+}
+
+.rest > div {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.rest.open {
+  grid-template-rows: 1fr;
+}
+
+.toggle {
+  justify-self: start;
+  margin-top: 8px;
+}

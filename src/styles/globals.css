@@ -1,0 +1,637 @@
+/*
+ * Global tokens, base elements and shared utility classes.
+ * Values are ported 1:1 from the OnPoint reference build; component-specific
+ * rules live in the matching *.module.css file.
+ */
+
+:root {
+  --rust: #9a3a1e;
+  --rust-text: #7f2d16;
+  --accent-on-dark: #e7b49f;
+  --rust-dark: #7a2c15;
+  --earth: #3d2c2b;
+  --ink: #1f1716;
+  --cream: #f6efe9;
+  --sand: #ece0d6;
+  --white: #fff;
+  --muted: #54443f;
+  --radius: 4px;
+  --max: 1180px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --display: var(--font-movement), var(--font-source-sans), serif;
+  --body: var(--font-source-sans), system-ui, sans-serif;
+}
+
+*,
+:before,
+:after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: 130px;
+  scroll-padding-bottom: 24px;
+}
+
+body {
+  font-family: var(--body);
+  color: var(--ink);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--display);
+  color: var(--earth);
+  margin: 0 0 0.5em;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: clamp(2.6rem, 7vw, 5.5rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 4.5vw, 3.4rem);
+}
+
+h3 {
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+h1,
+h2,
+h3,
+dt,
+dd,
+p,
+li,
+a {
+  overflow-wrap: break-word;
+}
+
+main {
+  min-height: 100vh;
+}
+
+main p,
+main li,
+main dd {
+  max-width: 72ch;
+}
+
+main:focus,
+h1:focus,
+[tabindex='-1']:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px var(--white);
+  border-radius: 4px;
+}
+
+abbr[title] {
+  text-underline-offset: 0.2em;
+  cursor: help;
+  -webkit-text-decoration: underline dotted;
+  text-decoration: underline dotted;
+}
+
+/* ---------- Layout ---------- */
+
+.container {
+  width: min(var(--max), 100% - 32px);
+  margin-inline: auto;
+}
+
+.section {
+  padding: clamp(56px, 9vw, 120px) 0;
+}
+
+.section--dark {
+  background: var(--earth);
+  color: var(--cream);
+}
+
+.section--dark h2,
+.section--dark h3 {
+  color: var(--cream);
+}
+
+.section--sand {
+  background: var(--sand);
+}
+
+.section--rust {
+  background: var(--rust);
+  color: var(--white);
+}
+
+.section--rust h2,
+.section--rust h3 {
+  color: var(--white);
+}
+
+.grid {
+  gap: 32px;
+  display: grid;
+}
+
+@media (width >= 760px) {
+  .grid--2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid--3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .grid--4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ---------- Typography helpers ---------- */
+
+.eyebrow {
+  font-family: var(--body);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--rust-text);
+  margin-bottom: 0.8em;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: block;
+}
+
+h2.eyebrow,
+h3.eyebrow {
+  line-height: 1.6;
+}
+
+.section--dark .eyebrow {
+  color: var(--sand);
+}
+
+.page-hero .eyebrow,
+.section--dark .link-arrow,
+.page-hero .link-arrow {
+  color: var(--accent-on-dark);
+}
+
+.section--rust .eyebrow,
+.section--rust .link-arrow {
+  color: var(--white);
+}
+
+.sr-only {
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  position: absolute !important;
+}
+
+/* ---------- Buttons & links ---------- */
+
+.btn {
+  border: 2px solid var(--rust);
+  background: var(--rust);
+  color: var(--white);
+  letter-spacing: 0.04em;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font: inherit;
+  align-items: center;
+  gap: 0.5em;
+  min-height: 48px;
+  padding: 0.8em 1.6em;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+  display: inline-flex;
+}
+
+.btn:hover {
+  background: var(--rust-dark);
+  border-color: var(--rust-dark);
+}
+
+.btn--ghost {
+  color: var(--rust-text);
+  background: 0 0;
+}
+
+.btn--ghost:hover {
+  background: var(--rust);
+  color: var(--white);
+}
+
+.btn--light {
+  background: var(--cream);
+  border-color: var(--cream);
+  color: var(--rust-text);
+}
+
+.btn--light:hover {
+  color: var(--cream);
+  background: 0 0;
+}
+
+.link-arrow {
+  color: var(--rust-text);
+  border-bottom: 1px solid;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+}
+
+.target a,
+a.target {
+  align-items: center;
+  min-height: 44px;
+  display: inline-flex;
+}
+
+.see-also a {
+  color: var(--rust-text);
+  font-weight: 600;
+}
+
+/* ---------- Cards ---------- */
+
+.card {
+  background: var(--white);
+  border-top: 4px solid var(--rust);
+  border-radius: var(--radius);
+  padding: 32px;
+}
+
+/* ---------- Page hero (inner pages) ---------- */
+
+.page-hero {
+  background: var(--earth);
+  color: var(--cream);
+  padding: clamp(72px, 12vw, 160px) 0 clamp(40px, 6vw, 72px);
+}
+
+.page-hero h1 {
+  color: var(--cream);
+  margin: 0;
+}
+
+.page-hero p {
+  max-width: 640px;
+  color: var(--sand);
+  margin-top: 1em;
+  font-size: 1.15rem;
+}
+
+/* ---------- Long-form documents (legal, glossary, statement) ---------- */
+
+.legal-doc {
+  max-width: 780px;
+}
+
+.legal-doc h2 {
+  margin: 2.2em 0 0.6em;
+  scroll-margin-top: 110px;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.legal-doc h2:first-of-type {
+  margin-top: 0;
+}
+
+.legal-doc h3 {
+  font-family: var(--body);
+  color: var(--earth);
+  margin: 1.6em 0 0.3em;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.legal-doc p,
+.legal-doc li {
+  color: #3a2f2e;
+}
+
+.legal-doc ul {
+  padding-left: 1.2em;
+}
+
+.legal-doc li {
+  margin-bottom: 0.3em;
+}
+
+.legal-doc a {
+  color: var(--rust-text);
+}
+
+.legal-doc dd,
+.legal-doc p,
+.legal-doc li {
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  overflow-wrap: anywhere;
+}
+
+.legal-warning {
+  border-left: 4px solid var(--rust);
+  background: #fde8e1;
+  border-radius: 4px;
+  margin-bottom: 40px;
+  padding: 16px 20px;
+}
+
+.legal-warning code {
+  background: #9a3a1e1a;
+  border-radius: 3px;
+  padding: 1px 6px;
+}
+
+.legal-note {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--muted) !important;
+}
+
+.legal-meta {
+  margin-top: 3em;
+  font-size: 0.9rem;
+  color: var(--muted) !important;
+}
+
+.legal-lang {
+  background: var(--sand);
+  border-left: 4px solid var(--earth);
+  border-radius: 4px;
+  margin-bottom: 32px;
+  padding: 14px 18px;
+}
+
+.toc {
+  background: var(--sand);
+  border-radius: 8px;
+  margin-bottom: 48px;
+  padding: 20px 28px;
+}
+
+.toc ol {
+  columns: 2;
+  column-gap: 32px;
+  margin: 0;
+  padding-left: 1.2em;
+}
+
+@media (width <= 600px) {
+  .toc ol {
+    columns: 1;
+  }
+}
+
+.toc a {
+  align-items: center;
+  min-height: 44px;
+  text-decoration: none;
+  display: inline-flex;
+}
+
+.toc a:hover {
+  text-decoration: underline;
+}
+
+.abbr-list {
+  gap: 0;
+  margin: 0;
+  display: grid;
+}
+
+.abbr-list > div {
+  border-top: 1px solid #3d2c2b26;
+  grid-template-columns: 9rem 1fr;
+  gap: 12px;
+  padding: 8px 0;
+  display: grid;
+}
+
+.abbr-list dt {
+  font-weight: 700;
+}
+
+.abbr-list dd {
+  margin: 0;
+}
+
+@media (width <= 480px) {
+  .abbr-list > div {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+}
+
+/* ---------- Motion runtime ---------- */
+
+/* Hide elements the motion runtime is about to animate in, so server-rendered
+   content does not flash before its entrance animation. The class is set by
+   the inline boot script only when motion is allowed. */
+html.motion-pending [data-reveal],
+html.motion-pending [data-split] {
+  opacity: 0;
+}
+
+/* ---------- Accessibility settings (set on <html> by the panel) ---------- */
+
+html.reduce-motion *,
+html.reduce-motion :before,
+html.reduce-motion :after {
+  scroll-behavior: auto !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+html.a11y-text-125 {
+  font-size: 125%;
+}
+
+html.a11y-text-150 {
+  font-size: 150%;
+}
+
+html.a11y-readable-font {
+  --display: var(--font-source-sans), system-ui, sans-serif;
+}
+
+html.a11y-readable-font h1,
+html.a11y-readable-font h2,
+html.a11y-readable-font h3 {
+  letter-spacing: 0;
+  font-weight: 700;
+}
+
+html.a11y-spacing body {
+  letter-spacing: 0.06em;
+  word-spacing: 0.16em;
+  line-height: 1.9;
+}
+
+html.a11y-spacing p,
+html.a11y-spacing li {
+  margin-bottom: 2em;
+}
+
+html.a11y-spacing h1,
+html.a11y-spacing h2,
+html.a11y-spacing h3 {
+  line-height: 1.35;
+}
+
+html.a11y-underline main a,
+html.a11y-underline footer a,
+html.a11y-underline [data-a11y-panel] a {
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 2px;
+  text-decoration: underline !important;
+}
+
+html.a11y-contrast {
+  --cream: #fff;
+  --sand: #fff;
+  --white: #fff;
+  --ink: #000;
+  --earth: #000;
+  --muted: #1f1716;
+  --rust: #6b2410;
+  --rust-text: #5a1e0d;
+  --rust-dark: #4a180a;
+  --accent-on-dark: #ffd9c9;
+}
+
+html.a11y-contrast body {
+  color: #000;
+  background: #fff;
+}
+
+html.a11y-contrast .section--sand {
+  background: #fff;
+  border-block: 2px solid #000;
+}
+
+html.a11y-contrast .card {
+  border: 2px solid #000;
+}
+
+html.a11y-contrast .section--dark,
+html.a11y-contrast .page-hero {
+  color: #fff;
+  background: #000;
+}
+
+html.a11y-contrast .section--dark .eyebrow,
+html.a11y-contrast .page-hero p {
+  color: #fff;
+}
+
+html.a11y-contrast input,
+html.a11y-contrast textarea {
+  background: #fff !important;
+  border: 2px solid #000 !important;
+}
+
+html.a11y-contrast a:not(.btn) {
+  text-decoration: underline;
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --cream: #fff;
+    --sand: #fff;
+    --ink: #000;
+    --earth: #000;
+    --muted: #1f1716;
+    --rust: #6b2410;
+    --rust-text: #5a1e0d;
+    --accent-on-dark: #ffd9c9;
+  }
+
+  a:not(.btn) {
+    text-decoration: underline;
+  }
+}
+
+@media (forced-colors: active) {
+  :focus-visible {
+    box-shadow: none;
+    outline: 3px solid highlight;
+  }
+
+  .btn,
+  .card {
+    border: 2px solid buttontext;
+  }
+
+  img {
+    forced-color-adjust: none;
+  }
+}
+
+/* Focus rings on dark backgrounds */
+.section--dark :focus-visible,
+.section--rust :focus-visible,
+.page-hero :focus-visible {
+  outline-color: var(--cream);
+}
+
+/* ---------- Lenis smooth scroll ---------- */
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: clip;
+}
+
+.lenis [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+html.menu-locked,
+html.menu-locked body {
+  overflow: hidden;
+}

@@ -1,0 +1,66 @@
+.easy {
+  max-width: 760px;
+  font-size: 1.25rem;
+  line-height: 1.7;
+}
+
+.easy h2 {
+  font-family: var(--body);
+  color: var(--earth);
+  text-transform: none;
+  letter-spacing: 0;
+  margin: 2em 0 0.6em;
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.easy p {
+  margin: 0 0 0.7em;
+}
+
+.easy ul {
+  padding-left: 1.4em;
+}
+
+.easy li {
+  margin-bottom: 0.5em;
+}
+
+.easy a {
+  color: var(--rust-text);
+  font-weight: 600;
+}
+
+.explain {
+  background: var(--sand);
+  border-left: 6px solid var(--earth);
+  border-radius: 4px;
+  padding: 16px 20px;
+}
+
+.box {
+  background: var(--white);
+  border: 3px solid var(--earth);
+  border-radius: 10px;
+  margin: 1em 0;
+  padding: 20px 24px;
+}
+
+.big {
+  font-size: 1.4rem;
+}
+
+.big a {
+  overflow-wrap: anywhere;
+  align-items: center;
+  min-height: 44px;
+  display: inline-flex;
+}
+
+.draft {
+  border-left: 6px solid var(--rust);
+  background: #fbeee8;
+  border-radius: 4px;
+  padding: 14px 18px;
+  font-size: 1rem;
+}

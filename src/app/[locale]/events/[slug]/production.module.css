@@ -1,0 +1,157 @@
+/* Production page: reference tokens and patterns (page hero, spotlight, cards, FAQ). */
+
+.layout {
+  gap: 40px;
+  display: grid;
+}
+
+@media (width >= 900px) {
+  .layout {
+    grid-template-columns: 240px minmax(0, 1fr);
+    align-items: start;
+    gap: 64px;
+  }
+}
+
+.body {
+  gap: clamp(56px, 8vw, 96px);
+  display: grid;
+}
+
+.photo {
+  border-radius: 6px;
+  margin: 0;
+  overflow: hidden;
+}
+
+.photo img {
+  width: 100%;
+  height: auto;
+}
+
+.mapLink {
+  color: var(--rust-text);
+  align-items: center;
+  min-height: 44px;
+  font-weight: 600;
+  display: inline-flex;
+}
+
+.plot {
+  max-width: 72ch;
+}
+
+.langNote {
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+.cast {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 32px 24px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+}
+
+.castLink {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+
+.castFrame {
+  aspect-ratio: 4 / 5;
+  background: var(--earth);
+  border-radius: 6px;
+  place-items: center;
+  display: grid;
+  position: relative;
+  overflow: hidden;
+}
+
+.castFrame img {
+  object-fit: cover;
+  object-position: center 20%;
+  filter: grayscale() contrast(1.05);
+  width: 100%;
+  height: 100%;
+  transition:
+    filter 0.7s,
+    transform 1s var(--ease-out);
+}
+
+.castFrame:after {
+  content: '';
+  pointer-events: none;
+  background: var(--rust);
+  mix-blend-mode: multiply;
+  opacity: 0.35;
+  transition: opacity 0.7s;
+  position: absolute;
+  inset: 0;
+}
+
+.castLink:hover .castFrame img,
+.castLink:focus-visible .castFrame img {
+  filter: none;
+  transform: scale(1.05);
+}
+
+.castLink:hover .castFrame:after,
+.castLink:focus-visible .castFrame:after {
+  opacity: 0;
+}
+
+.initials {
+  font-family: var(--display);
+  color: var(--cream);
+  z-index: 1;
+  font-size: 3.4rem;
+  position: relative;
+}
+
+.mark {
+  opacity: 0.12;
+  filter: brightness(0) invert();
+  width: 85%;
+  position: absolute;
+}
+
+.castInfo {
+  border-bottom: 1px solid #3d2c2b26;
+  padding: 14px 0 12px;
+}
+
+.castInfo h3 {
+  margin: 0 0 4px;
+  font-size: 1.5rem;
+}
+
+.castInfo p {
+  color: var(--muted);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.more {
+  color: var(--rust-text);
+  margin-top: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.tba {
+  color: var(--muted);
+}
+
+:global(html.a11y-contrast) .castFrame img {
+  filter: none !important;
+}
+
+:global(html.a11y-contrast) .castFrame:after {
+  display: none;
+}
